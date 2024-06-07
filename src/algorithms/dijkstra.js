@@ -1,5 +1,3 @@
-// src/algorithms/dijkstra.js
-
 export function dijkstra(graph, startNode, endNode) {
     const distances = {};
     const prev = {};
