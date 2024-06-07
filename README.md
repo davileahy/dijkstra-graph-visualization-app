@@ -68,6 +68,6 @@ O algoritmo de Dijkstra é um algoritmo de busca de caminho que encontra o camin
 - [@palmeiraarthur](https://github.com/palmeiraarthur)
 - [@davileahy](https://github.com/davileahy)
 - [@21vito](https://github.com/21vito)
-- [moriarthyy](https://github.com/moriarthyy)
+- [@moriarthyy](https://github.com/moriarthyy)
 - [@hanyakawa](https://github.com/Hanyakawa)
 - [@filipemalgueiro](https://github.com/filipemalgueiro)
