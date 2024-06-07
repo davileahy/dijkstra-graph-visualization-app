@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Map Grafo Visualização
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
 
-## Available Scripts
+Este projeto é um aplicativo de visualização de grafos que permite ao usuário selecionar dois pontos em um mapa e encontrar o melhor caminho entre eles utilizando o algoritmo de Dijkstra. O aplicativo é desenvolvido usando React para a interface do usuário e Leaflet para manipulação de mapas. Ele demonstra conceitos de grafos e algoritmos de busca de caminho, sendo uma ótima ferramenta educacional.
 
-In the project directory, you can run:
+## Tecnologias Utilizadas
 
-### `npm start`
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Leaflet**: Biblioteca JavaScript para manipulação de mapas interativos.
+- **D3.js**: Biblioteca JavaScript para manipulação de documentos baseados em dados (opcional para visualizações mais avançadas).
+- **HTML/CSS**: Para estrutura e estilo da aplicação.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Instalação
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Pré-requisitos
 
-### `npm test`
+- Node.js e npm instalados.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Passo a Passo
 
-### `npm run build`
+1. Clone o repositório:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/seu-usuario/map-grafo-visualizacao.git
+cd map-grafo-visualizacao
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Instale as dependências:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+3. Inicie o servidor de desenvolvimento:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O aplicativo estará disponível em `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Estrutura do Projeto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `src/components/Map.js`: Componente React para renderizar o mapa e permitir a seleção de pontos.
+- `src/algorithms/dijkstra.js`: Implementação do algoritmo de Dijkstra para encontrar o melhor caminho entre dois pontos.
+- `src/styles/Map.css`: Estilos CSS para o componente de mapa.
 
-## Learn More
+## Utilização do Algoritmo de Dijkstra
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Algoritmo de Dijkstra
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+O algoritmo de Dijkstra é um algoritmo de busca de caminho que encontra o caminho mais curto entre dois nós em um grafo ponderado. Ele funciona da seguinte maneira:
 
-### Code Splitting
+1. Inicialize a distância para o nó inicial como 0 e para todos os outros nós como infinito.
+2. Coloque todos os nós em uma fila de prioridade.
+3. Enquanto a fila de prioridade não estiver vazia:
+   - Extraia o nó com a menor distância da fila.
+   - Para cada vizinho do nó extraído, calcule a distância através desse nó e, se for menor que a distância atual armazenada, atualize a distância e o predecessor.
+4. Reconstrua o caminho mais curto a partir dos predecessores.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Estrutura de Dados
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Grafo**: Representado como um objeto onde as chaves são os nós e os valores são objetos com os vizinhos e os pesos das arestas.
