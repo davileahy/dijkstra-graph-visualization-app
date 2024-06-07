@@ -22,7 +22,7 @@ Este projeto é um aplicativo de visualização de grafos que permite ao usuári
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/map-grafo-visualizacao.git
+git clone https://github.com/davileahy/map-grafo.git
 cd map-grafo-visualizacao
 ```
 
@@ -62,3 +62,12 @@ O algoritmo de Dijkstra é um algoritmo de busca de caminho que encontra o camin
 ### Estrutura de Dados
 
 - **Grafo**: Representado como um objeto onde as chaves são os nós e os valores são objetos com os vizinhos e os pesos das arestas.
+
+## Colaboradores
+
+- [@palmeiraarthur](https://github.com/palmeiraarthur)
+- [@davileahy](https://github.com/davileahy)
+- [@21vito](https://github.com/21vito)
+- [@moriarthyy](https://github.com/moriarthyy)
+- [@hanyakawa](https://github.com/Hanyakawa)
+- [@filipemalgueiro](https://github.com/filipemalgueiro)
