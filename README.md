@@ -22,7 +22,7 @@ Este projeto é um aplicativo de visualização de grafos que permite ao usuári
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/map-grafo-visualizacao.git
+git clone https://github.com/davileahy/map-grafo.git
 cd map-grafo-visualizacao
 ```
 
