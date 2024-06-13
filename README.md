@@ -1,73 +1,76 @@
-# Map Grafo Visualização
+# Graph Dijkstra App
 
-## Descrição
+## Objetivo
+Este aplicativo permite aos usuários criar um grafo e aplicar o algoritmo de Dijkstra para encontrar o menor caminho entre dois pontos no grafo. É uma ferramenta educativa e prática para visualizar grafos e entender como funciona o algoritmo de Dijkstra.
 
-Este projeto é um aplicativo de visualização de grafos que permite ao usuário selecionar dois pontos em um mapa e encontrar o melhor caminho entre eles utilizando o algoritmo de Dijkstra. O aplicativo é desenvolvido usando React para a interface do usuário e Leaflet para manipulação de mapas. Ele demonstra conceitos de grafos e algoritmos de busca de caminho, sendo uma ótima ferramenta educacional.
+## Funcionalidades
+- Adicionar nós ao grafo.
+- Adicionar arestas (com pesos) entre os nós.
+- Visualizar o grafo de maneira interativa.
+- Aplicar o algoritmo de Dijkstra para encontrar o menor caminho entre dois nós selecionados.
 
-## Tecnologias Utilizadas
-
-- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
-- **Leaflet**: Biblioteca JavaScript para manipulação de mapas interativos.
-- **D3.js**: Biblioteca JavaScript para manipulação de documentos baseados em dados (opcional para visualizações mais avançadas).
-- **HTML/CSS**: Para estrutura e estilo da aplicação.
+## Bibliotecas Utilizadas
+- **React**: Biblioteca principal para construção da interface do usuário.
+- **react-force-graph**: Para visualização interativa do grafo.
+- **dijkstrajs**: Para implementação do algoritmo de Dijkstra.
 
 ## Instalação
+Siga os passos abaixo para instalar e executar o projeto em sua máquina local.
 
 ### Pré-requisitos
-
-- Node.js e npm instalados.
+- Node.js (versão 14 ou superior)
+- npm (gerenciador de pacotes do Node.js)
 
 ### Passo a Passo
-
-1. Clone o repositório:
-
-```bash
-git clone https://github.com/davileahy/map-grafo.git
-cd map-grafo-visualizacao
-```
+1. Clone o repositório para sua máquina local:
+   \`\`\`bash
+   git clone https://github.com/seu-usuario/graph-dijkstra-app.git
+   cd graph-dijkstra-app
+   \`\`\`
 
 2. Instale as dependências:
+   \`\`\`bash
+   npm install
+   \`\`\`
 
-```bash
-npm install
-```
+3. Execute o aplicativo:
+   \`\`\`bash
+   npm start
+   \`\`\`
 
-3. Inicie o servidor de desenvolvimento:
+   O aplicativo será aberto em \`http://localhost:3000\` no seu navegador padrão.
 
-```bash
-npm start
-```
+## Componentes Principais
 
-O aplicativo estará disponível em `http://localhost:3000`.
+### GraphEditor.js
+Componente principal que integra todos os outros componentes. Permite adicionar nós, arestas e visualizar o grafo.
 
-## Estrutura do Projeto
+### AddNodeForm.js
+Componente para adicionar nós ao grafo.
 
-- `src/components/Map.js`: Componente React para renderizar o mapa e permitir a seleção de pontos.
-- `src/algorithms/dijkstra.js`: Implementação do algoritmo de Dijkstra para encontrar o melhor caminho entre dois pontos.
-- `src/styles/Map.css`: Estilos CSS para o componente de mapa.
+### AddEdgeForm.js
+Componente para adicionar arestas (com pesos) entre os nós.
 
-## Utilização do Algoritmo de Dijkstra
+### GraphVisualization.js
+Componente para visualização interativa do grafo usando \`react-force-graph\`.
 
-### Algoritmo de Dijkstra
+### DijkstraAlgorithm.js
+Componente para aplicar o algoritmo de Dijkstra e mostrar o menor caminho entre dois nós selecionados.
 
-O algoritmo de Dijkstra é um algoritmo de busca de caminho que encontra o caminho mais curto entre dois nós em um grafo ponderado. Ele funciona da seguinte maneira:
+### dijkstra.js
+Utilitário que usa a biblioteca \`dijkstrajs\` para calcular o menor caminho.
 
-1. Inicialize a distância para o nó inicial como 0 e para todos os outros nós como infinito.
-2. Coloque todos os nós em uma fila de prioridade.
-3. Enquanto a fila de prioridade não estiver vazia:
-   - Extraia o nó com a menor distância da fila.
-   - Para cada vizinho do nó extraído, calcule a distância através desse nó e, se for menor que a distância atual armazenada, atualize a distância e o predecessor.
-4. Reconstrua o caminho mais curto a partir dos predecessores.
+## Como Funciona
+1. **Adicionar Nós**: Utilize o formulário para adicionar novos nós ao grafo.
+2. **Adicionar Arestas**: Utilize o formulário para adicionar arestas com pesos entre os nós.
+3. **Visualizar Grafo**: O grafo é visualizado de forma interativa, permitindo uma melhor compreensão das conexões.
+4. **Algoritmo de Dijkstra**: Selecione os nós de origem e destino e aplique o algoritmo de Dijkstra para encontrar e exibir o menor caminho.
 
-### Estrutura de Dados
+## Exemplo de Uso
+1. Adicione nós "A", "B" e "C".
+2. Adicione arestas: "A" para "B" com peso 1, "B" para "C" com peso 2, "A" para "C" com peso 4.
+3. Selecione "A" como nó de origem e "C" como nó de destino.
+4. Clique em "Find Shortest Path" para visualizar o menor caminho que será "A -> B -> C" com peso total de 3.
 
-- **Grafo**: Representado como um objeto onde as chaves são os nós e os valores são objetos com os vizinhos e os pesos das arestas.
-
-## Colaboradores
-
-- [@palmeiraarthur](https://github.com/palmeiraarthur)
-- [@davileahy](https://github.com/davileahy)
-- [@21vito](https://github.com/21vito)
-- [@moriarthyy](https://github.com/moriarthyy)
-- [@hanyakawa](https://github.com/Hanyakawa)
-- [@filipemalgueiro](https://github.com/filipemalgueiro)
+## Contato
+Para dúvidas ou sugestões, entre em contato através do email: seu-email@exemplo.com
