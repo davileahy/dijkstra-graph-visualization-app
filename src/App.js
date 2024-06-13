@@ -1,14 +1,7 @@
-// src/App.js
-import React from 'react';
-import GraphEditor from './components/GraphEditor';
-import './App.css';
-
-const App = () => {
+function App() {
   return (
-    <div className="App">
-      <GraphEditor />
-    </div>
+    <p>OI</p>
   );
-};
+}
 
 export default App;
