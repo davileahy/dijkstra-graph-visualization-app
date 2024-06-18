@@ -8,22 +8,31 @@ const AddEdgeForm = ({ addEdge, nodes }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEdge({ from, to, weight: parseFloat(weight) });
-    setFrom('');
-    setTo('');
-    setWeight('');
+    if (from !== to) {
+      const edgeWeight = parseFloat(weight);
+      if (!isNaN(edgeWeight)) {
+        addEdge({ from, to, weight: edgeWeight });
+        setFrom('');
+        setTo('');
+        setWeight('');
+      } else {
+        alert('Please enter a valid weight for the edge.');
+      }
+    } else {
+      alert('Cannot connect a node to itself.');
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <select value={from} onChange={(e) => setFrom(e.target.value)}>
-        <option value="">From</option>
+        <option value="">De</option>
         {nodes.map((node, index) => (
           <option key={index} value={node}>{node}</option>
         ))}
       </select>
       <select value={to} onChange={(e) => setTo(e.target.value)}>
-        <option value="">To</option>
+        <option value="">Para</option>
         {nodes.map((node, index) => (
           <option key={index} value={node}>{node}</option>
         ))}
@@ -32,9 +41,10 @@ const AddEdgeForm = ({ addEdge, nodes }) => {
         type="number"
         value={weight}
         onChange={(e) => setWeight(e.target.value)}
-        placeholder="Weight"
+        placeholder="Peso"
+        required
       />
-      <button type="submit">Add Edge</button>
+      <button type="submit">Adicionar Aresta</button>
     </form>
   );
 };

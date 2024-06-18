@@ -17,27 +17,31 @@ const DijkstraAlgorithm = ({ nodes, edges }) => {
       graph[edge.from][edge.to] = edge.weight;
     });
     const shortestPath = findPath(graph, startNode, endNode);
-    setPath(shortestPath);
+    if (shortestPath.length === 0) {
+      alert('No path found between the selected nodes.');
+    } else {
+      setPath(shortestPath);
+    }
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <select value={startNode} onChange={(e) => setStartNode(e.target.value)}>
-          <option value="">Start Node</option>
+          <option value="">Nó Inicial</option>
           {nodes.map((node, index) => (
             <option key={index} value={node}>{node}</option>
           ))}
         </select>
         <select value={endNode} onChange={(e) => setEndNode(e.target.value)}>
-          <option value="">End Node</option>
+          <option value="">Nó Final</option>
           {nodes.map((node, index) => (
             <option key={index} value={node}>{node}</option>
           ))}
         </select>
-        <button type="submit">Find Shortest Path</button>
+        <button type="submit">Achar o Caminho Mais Curto</button>
       </form>
-      {path && <div>Shortest Path: {path.join(' -> ')}</div>}
+      {path && path.length > 0 && <div>Shortest Path: {path.join(' -> ')}</div>}
     </div>
   );
 };

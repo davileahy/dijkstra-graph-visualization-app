@@ -1,13 +1,17 @@
 // src/components/AddNodeForm.js
 import React, { useState } from 'react';
 
-const AddNodeForm = ({ addNode }) => {
+const AddNodeForm = ({ addNode, setNodeColor }) => {
   const [nodeName, setNodeName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNode(nodeName);
+    addNode({ name: nodeName, color: setNodeColor });
     setNodeName('');
+  };
+
+  const handleColorChange = (e) => {
+    setNodeColor(e.target.value);
   };
 
   return (
@@ -16,9 +20,13 @@ const AddNodeForm = ({ addNode }) => {
         type="text"
         value={nodeName}
         onChange={(e) => setNodeName(e.target.value)}
-        placeholder="Node Name"
+        placeholder="Nome do Nó"
       />
-      <button type="submit">Add Node</button>
+      <input
+        type="color"
+        onChange={handleColorChange}
+      />
+      <button type="submit">Adicionar Nó</button>
     </form>
   );
 };
