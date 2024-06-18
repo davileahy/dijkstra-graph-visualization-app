@@ -72,5 +72,11 @@ Utilitário que usa a biblioteca \`dijkstrajs\` para calcular o menor caminho.
 3. Selecione "A" como nó de origem e "C" como nó de destino.
 4. Clique em "Find Shortest Path" para visualizar o menor caminho que será "A -> B -> C" com peso total de 3.
 
-## Contato
-Para dúvidas ou sugestões, entre em contato através do email: seu-email@exemplo.com
+## Colaboradores
+
+- [@palmeiraarthur](https://github.com/palmeiraarthur)
+- [@davileahy](https://github.com/davileahy)
+- [@21vito](https://github.com/21vito)
+- [@moriarthyy](https://github.com/moriarthyy)
+- [@hanyakawa](https://github.com/Hanyakawa)
+- [@filipemalgueiro](https://github.com/filipemalgueiro)
