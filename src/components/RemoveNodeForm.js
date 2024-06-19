@@ -20,7 +20,7 @@ const RemoveNodeForm = ({ nodes, removeNode }) => {
           <option key={node.name} value={node.name}>{node.name}</option>
         ))}
       </select>
-      <button type="submit">Remover Nó</button>
+      <button type="submit"> Nó</button>
     </form>
   );
 };

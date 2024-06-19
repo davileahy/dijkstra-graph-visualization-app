@@ -11,15 +11,19 @@ const AddEdgeForm = ({ addEdge, nodes }) => {
     if (from !== to) {
       const edgeWeight = parseFloat(weight);
       if (!isNaN(edgeWeight)) {
-        addEdge({ from, to, weight: edgeWeight });
-        setFrom('');
-        setTo('');
-        setWeight('');
+        if (edgeWeight < 0) {
+          alert('O peso da aresta não pode ser negativo.');
+        } else {
+          addEdge({ from, to, weight: edgeWeight });
+          setFrom('');
+          setTo('');
+          setWeight('');
+        }
       } else {
-        alert('Please enter a valid weight for the edge.');
+        alert('Por favor, insira um peso válido para a aresta.');
       }
     } else {
-      alert('Cannot connect a node to itself.');
+      alert('Não é possível conectar um nó a si mesmo.');
     }
   };
 

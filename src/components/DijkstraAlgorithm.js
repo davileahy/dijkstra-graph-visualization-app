@@ -1,4 +1,3 @@
-// src/components/DijkstraAlgorithm.js
 import React, { useState } from 'react';
 import { findPath } from '../algorithms/dijkstra';
 
@@ -6,6 +5,7 @@ const DijkstraAlgorithm = ({ nodes, edges }) => {
   const [startNode, setStartNode] = useState('');
   const [endNode, setEndNode] = useState('');
   const [path, setPath] = useState(null);
+  const [errorAlert, setErrorAlert] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,11 +16,19 @@ const DijkstraAlgorithm = ({ nodes, edges }) => {
       }
       graph[edge.from][edge.to] = edge.weight;
     });
-    const shortestPath = findPath(graph, startNode, endNode);
-    if (shortestPath.length === 0) {
-      alert('No path found between the selected nodes.');
-    } else {
-      setPath(shortestPath);
+
+    try {
+      const shortestPath = findPath(graph, startNode, endNode);
+      if (shortestPath.length === 0) {
+        setErrorAlert(true);
+        setPath(null);
+      } else {
+        setPath(shortestPath);
+        setErrorAlert(false);
+      }
+    } catch (error) {
+      setErrorAlert(true);
+      console.error('Error in finding path:', error);
     }
   };
 
@@ -41,7 +49,15 @@ const DijkstraAlgorithm = ({ nodes, edges }) => {
         </select>
         <button type="submit">Achar o Caminho Mais Curto</button>
       </form>
-      {path && path.length > 0 && <div>Shortest Path: {path.join(' -> ')}</div>}
+      {errorAlert && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+          <strong className="font-bold">Erro:</strong>
+          <span className="block sm:inline"> Nenhum caminho encontrado entre os nós selecionados.</span>
+        </div>
+      )}
+      {path && path.length > 0 && (
+        <div>Menor Caminho: {path.join(' -> ')}</div>
+      )}
     </div>
   );
 };

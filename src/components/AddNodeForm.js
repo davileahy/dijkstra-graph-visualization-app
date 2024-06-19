@@ -16,17 +16,11 @@ const AddNodeForm = ({ addNode, setNodeColor }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={nodeName}
-        onChange={(e) => setNodeName(e.target.value)}
-        placeholder="Nome do Nó"
-      />
-      <input
-        type="color"
-        onChange={handleColorChange}
-      />
-      <button type="submit">Adicionar Nó</button>
+      <input className='input input-bordered w-full max-w-xs' type="text" value={nodeName} onChange={(e) => setNodeName(e.target.value)} placeholder="Nome do Nó"  />
+
+      <input type="color" onChange={handleColorChange} />
+        
+      <button className="btn btn-accent" type="submit">Adicionar Nó</button>
     </form>
   );
 };

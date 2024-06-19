@@ -47,13 +47,6 @@ const GraphVisualization = ({ nodes, edges, onDoubleClick, onNodeClick, selected
           ctx.textBaseline = 'middle';
           ctx.fillText(label, node.x, node.y);
 
-          if (node.id === selectedNode?.name) {
-            ctx.beginPath();
-            ctx.arc(node.x, node.y, 8, 0, 2 * Math.PI, false);
-            ctx.strokeStyle = 'yellow';
-            ctx.stroke();
-          }
-
           ctx.beginPath();
           ctx.arc(node.x, node.y, 5, 0, 2 * Math.PI, false);
           ctx.fill();

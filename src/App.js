@@ -1,12 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import FirstPage from './components/FirstPage';
 import GraphEditor from './components/GraphEditor';
-import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
-      <GraphEditor />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<FirstPage />} />
+        <Route path="/grapheditor" element={<GraphEditor />} />
+      </Routes>
+    </Router>
   );
 };
 
