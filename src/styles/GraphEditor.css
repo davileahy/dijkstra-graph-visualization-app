@@ -1,0 +1,20 @@
+.graph-editor-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .graph-editor-sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+  }
+  
+  .graph-editor-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+  }
+  
