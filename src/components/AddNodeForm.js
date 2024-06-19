@@ -13,7 +13,7 @@ const AddNodeForm = ({ addNode,  }) => {
 
   return (
     <form className='flex justify-center items-center gap-[10px]' onSubmit={handleSubmit}>
-      <input className='input input-bordered input-accent w-full max-w-xs ' type="text" value={nodeName} onChange={(e) => setNodeName(e.target.value)} placeholder="Nome do Nó"  />
+      <input className='input input-bordered input-primary w-full max-w-xs ' type="text" value={nodeName} onChange={(e) => setNodeName(e.target.value)} placeholder="Nome do Nó" required />
         
       <button className="btn btn-accent" type="submit">Adicionar Nó <PlusCircle /> </button>
     </form>

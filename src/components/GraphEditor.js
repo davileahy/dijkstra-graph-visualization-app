@@ -86,7 +86,7 @@ const GraphEditor = () => {
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl ">
 
         {/* Coluna esquerda */}
-        <div className="flex flex-col items-start justify-start gap-[20px] ">
+        <div className="flex flex-col items-start justify-start gap-[40px] ">
 
           
           <div className='flex flex-col items-start gap-[20px]'>
@@ -113,7 +113,7 @@ const GraphEditor = () => {
         </div>
 
         {/* Coluna direita */}
-        <div className="bg-gray-100 rounded-lg p-4">
+        <div className="bg-gray-100 rounded-xl">
           {/* Visualização do grafo */}
           <GraphVisualization
             nodes={nodes.map(node => ({ ...node, color: getNodeColor(node.name) }))}
