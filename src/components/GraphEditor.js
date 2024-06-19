@@ -5,6 +5,8 @@ import GraphVisualization from './GraphVisualization';
 import DijkstraAlgorithm from './DijkstraAlgorithm';
 import { useNavigate } from 'react-router-dom';
 
+import { XSquare, ArrowLeft } from 'react-feather'; // icones
+
 const GraphEditor = () => {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
@@ -31,7 +33,7 @@ const GraphEditor = () => {
   };
 
   const invertColor = (hex) => {
-    if (typeof hex !== 'string') return '#0A81FF'; // Ensure hex is a string
+    if (typeof hex !== 'string') return '#0A81FF';
     const color = hex.substring(1);
     const rgb = parseInt(color, 16);
     const inverted = (0xffffff ^ rgb).toString(16).padStart(6, '0');
@@ -78,40 +80,56 @@ const GraphEditor = () => {
   };
   
   return (
-    <div className="bg-black p-11 h-[963] max-h-[963] w-1 ">
-      <h1 className="text-2xl font-bold mb-4">Graph Editor</h1>
+    <div className="flex flex-col items-center justify-center shadow-[0px_0px_33px_0px_rgba(0,0,0,0.67)] p-7 m-[20px] rounded-xl md:p-16">
+      <h1 className="text-3xl font-bold mb-8 md:text-4xl">Editor de Grafo</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <div className="space-y-4">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl ">
 
+        {/* Coluna esquerda */}
+        <div className="flex flex-col items-start justify-start gap-[20px] ">
+
+          
+          <div className='flex flex-col items-start gap-[20px]'>
+          {/* Formulário de adição de nó */}
           <div className="flex justify-center">
             <AddNodeForm addNode={addNode} setNodeColor={setNodeColor} />
           </div>
 
           <div className="flex justify-center">
-            {/* <RemoveNodeForm nodes={nodes} removeNode={removeNode} /> */}
+            <button className="btn btn-outline btn-error" onClick={handleRemoveNode} disabled={!selectedNode}>Remover Nó <XSquare /> </button>
+          </div>
+          {/* Botão e lógica para remover nó */}
+
           </div>
 
+          {/* Formulário de adição de aresta */}
           <div className="flex justify-center">
-            <button className='btn btn-error' onClick={handleRemoveNode} disabled={!selectedNode}>Remover Nó</button>
+            <AddEdgeForm addEdge={addEdge} nodes={nodes.map(node => node.name)} />
           </div>
-          <AddEdgeForm addEdge={addEdge} nodes={nodes.map(node => node.name)} />
+
+          {/* Algoritmo de Dijkstra */}
           <DijkstraAlgorithm nodes={nodes.map(node => node.name)} edges={edges} />
+
         </div>
-        <div className="bg-gray-100 rounded-lg p-4 shadow-md">
+
+        {/* Coluna direita */}
+        <div className="bg-gray-100 rounded-lg p-4">
+          {/* Visualização do grafo */}
           <GraphVisualization
             nodes={nodes.map(node => ({ ...node, color: getNodeColor(node.name) }))}
             edges={edges}
             onDoubleClick={handleDoubleClick}
             onNodeClick={handleNodeClick}
           />
+
           {selectedNode && <div className="mt-4 text-lg font-semibold">Nó Selecionado: {selectedNode.name}</div>}
+          
         </div>
-        <button onClick={() => navigate('/')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-8">
-         Voltar para a página inicial
-        </button>
+
       </div>
+
+      {/* Botão para voltar à página inicial */}
+      <button onClick={() => navigate('/')} className="btn btn-outline btn-accent mt-8 md:mt-12">Voltar para a página inicial <ArrowLeft /> </button>
     </div>
   );
 };

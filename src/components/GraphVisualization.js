@@ -1,9 +1,28 @@
-// src/components/GraphVisualization.js
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { ForceGraph2D } from 'react-force-graph';
 
 const GraphVisualization = ({ nodes, edges, onDoubleClick, onNodeClick, selectedNode }) => {
   const fgRef = useRef();
+  const containerRef = useRef();
+  const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        setDimensions({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight
+        });
+      }
+    };
+
+    window.addEventListener('resize', updateDimensions);
+    updateDimensions();
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, []);
 
   const graphData = {
     nodes: nodes.map(node => ({ id: node.name, color: node.color })),
@@ -31,11 +50,14 @@ const GraphVisualization = ({ nodes, edges, onDoubleClick, onNodeClick, selected
 
   return (
     <div
-      style={{ width: '100%', height: '500px' }}
+      ref={containerRef}
+      style={{ width: '100%', height: '100%' }}
       onDoubleClick={handleDoubleClick}
     >
       <ForceGraph2D
         ref={fgRef}
+        width={dimensions.width}
+        height={dimensions.height}
         graphData={graphData}
         nodeLabel="id"
         nodeCanvasObject={(node, ctx, globalScale) => {

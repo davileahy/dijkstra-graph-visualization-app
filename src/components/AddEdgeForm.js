@@ -1,5 +1,6 @@
 // src/components/AddEdgeForm.js
 import React, { useState } from 'react';
+import { PlusCircle } from 'react-feather';
 
 const AddEdgeForm = ({ addEdge, nodes }) => {
   const [from, setFrom] = useState('');
@@ -28,14 +29,15 @@ const AddEdgeForm = ({ addEdge, nodes }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <select value={from} onChange={(e) => setFrom(e.target.value)}>
+    <form className='flex flex-col gap-[20px]' onSubmit={handleSubmit}>
+      <div className='flex gap-[20px]'> 
+      <select value={from} onChange={(e) => setFrom(e.target.value)} className='select select-accent w-full max-w-xs'>
         <option value="">De</option>
         {nodes.map((node, index) => (
           <option key={index} value={node}>{node}</option>
         ))}
       </select>
-      <select value={to} onChange={(e) => setTo(e.target.value)}>
+      <select value={to} onChange={(e) => setTo(e.target.value)} className='select select-accent w-full max-w-xs'>
         <option value="">Para</option>
         {nodes.map((node, index) => (
           <option key={index} value={node}>{node}</option>
@@ -47,8 +49,11 @@ const AddEdgeForm = ({ addEdge, nodes }) => {
         onChange={(e) => setWeight(e.target.value)}
         placeholder="Peso"
         required
+        className='input input-bordered input-primary w-full max-w-xs'
       />
-      <button type="submit">Adicionar Aresta</button>
+      </div>
+      
+      <button type="submit" className='btn btn-accent'>Adicionar Aresta <PlusCircle /> </button>
     </form>
   );
 };
