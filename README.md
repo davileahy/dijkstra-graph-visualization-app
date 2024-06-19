@@ -80,3 +80,5 @@ Utilitário que usa a biblioteca \`dijkstrajs\` para calcular o menor caminho.
 - [@moriarthyy](https://github.com/moriarthyy)
 - [@hanyakawa](https://github.com/Hanyakawa)
 - [@filipemalgueiro](https://github.com/filipemalgueiro)
+
+![logo](https://github.com/davileahy/dijkstra-graph-visualization-app/assets/100385669/f3a215ea-2510-46d2-bf4b-ce575a10b923)
