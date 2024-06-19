@@ -24,7 +24,7 @@ Siga os passos abaixo para instalar e executar o projeto em sua máquina local.
 ### Passo a Passo
 1. Clone o repositório para sua máquina local:
    \`\`\`bash
-   git clone https://github.com/seu-usuario/graph-dijkstra-app.git
+   git clone https://github.com/davileahy/graph-dijkstra-app.git
    cd graph-dijkstra-app
    \`\`\`
 
